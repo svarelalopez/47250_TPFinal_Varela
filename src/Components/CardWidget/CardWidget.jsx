@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import './CardWidget.css'
 import { CarritoContext } from '../../Context/CarritoContext';
 import { Link } from 'react-router-dom';
 

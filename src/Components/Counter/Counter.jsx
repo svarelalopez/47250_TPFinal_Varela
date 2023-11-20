@@ -1,6 +1,5 @@
 import {useState} from 'react' 
 
-
 const Counter = ({inicial, stock, funcionAgregar}) => {
     const [counter, setCounter]= useState(inicial);
 

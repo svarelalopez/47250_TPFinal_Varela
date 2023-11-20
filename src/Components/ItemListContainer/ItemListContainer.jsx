@@ -1,22 +1,28 @@
 import { useState, useEffect } from "react"
-import { getProducts, getProdsbyCategory } from "../../asyncmock"
 import ItemList from "../itemList/ItemList"
 import { useParams } from "react-router-dom"
+import { db } from "../../Services/config"
+import { collection, getDocs, query, where } from "firebase/firestore"
 
 const ItemListContainer = () => {
   const [productos, setProductos] = useState([]); //arranca con un array vacio
 
   const {idCategoria} = useParams();
-  
-  useEffect( ()=>{
 
-    const funcionProductos = idCategoria ? getProdsbyCategory : getProducts;
+  useEffect(()=>{
+      const misProductos = idCategoria ? query(collection(db, "inventario"), where("idCat", "==", idCategoria)): collection(db, "inventario");
 
-    funcionProductos(idCategoria)
-      .then(res=> setProductos(res))
-      .catch(error => console.log(error))
-  } ,[idCategoria])//cuando el array de dependencia está vacio, se ejecuta una sola vez , pero si pongo un estado, buelve a ejecutar la funcion cada vez que el estado cambia. por eso va idCategoria
-
+     getDocs(misProductos)
+       .then(res=> {
+          const nuevosProductos = res.docs.map (doc => {
+            const data = doc.data()
+            
+            return {id:doc.id, ...data}
+          })
+          setProductos(nuevosProductos);
+        })
+        .catch(error => console.log(error))
+  }, [idCategoria])
 
   return (
     <>

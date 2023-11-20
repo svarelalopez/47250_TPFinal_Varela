@@ -1,5 +1,4 @@
 import React from 'react';
-import './NavBar.css';
 import CardWidget from '../CardWidget/CardWidget';
 import { Link, NavLink } from 'react-router-dom';
 

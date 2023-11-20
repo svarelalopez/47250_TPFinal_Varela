@@ -1,11 +1,12 @@
 
 import { BrowserRouter, Routes,Route } from 'react-router-dom'
 import { CarritoProvider } from './Context/CarritoContext'
-
+import "./App.css"
 import NavBar from './Components/NavBar/NavBar'
 import Cart from './Components/Cart/Cart'
 import ItemListContainer from './Components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './Components/ItemDetailContainer/ItemDetailContainer'
+import Checkout from './Components/Checkout/Checkout'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
                 <Route path='/item/:idItem' element={<ItemDetailContainer/>}/>
                 <Route path='/item/:idItemcat' element={<ItemDetailContainer/>}/>
                 <Route path='/cart' element={<Cart/>}/>
+                <Route path='/checkout' element={<Checkout/>}/>
             </Routes>
         </CarritoProvider>
     </BrowserRouter>

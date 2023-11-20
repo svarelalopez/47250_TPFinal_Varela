@@ -19,7 +19,7 @@ const Cart = () => {
   return (
     <div>
         {
-            carrito.map(producto => <CartItem key={`ID_string_${producto.id}`} {...producto}/>) // recorrer el carrito y transformar el array de datos en elementos
+            carrito.map(producto => <CartItem key={producto.item.id} {...producto}/>) // recorrer el carrito y transformar el array de datos en elementos
         }
         <h3>Total: ${total}</h3>
         <h3>Cantidad Total: {cantidadTotal}</h3>

@@ -1,5 +1,5 @@
 import React, { Children } from 'react'
-// impoer tar de react usestate y use context, para crear un contexto que amacene toda la logica del cart.
+// importar de react usestate y use context, para crear un contexto que amacene toda la logica del cart.
 import { useState,createContext } from 'react'
 
 export const CarritoContext = createContext({
@@ -15,8 +15,8 @@ export const CarritoContext = createContext({
     const [total, setTotal] = useState(0);
     const [cantidadTotal, setCantidadTotal] = useState(0);
 
-    //verificación
-    // console.log(carrito);
+
+    // console.log(carrito);     //verificación
 
     //acá funciones auxiliares para la logica del carrito
 
